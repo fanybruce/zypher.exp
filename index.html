@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zypher - Official Application & Privacy Portal</title>
+  <link rel="icon" type="image/png" href="assets/puzzles_icon.png">
+  <meta name="description" content="Official developer portal and privacy policy hub for Zypher mobile applications.">
+  <style>
+    :root {
+      --bg-color: #0d0f12;
+      --card-bg: #161b22;
+      --card-border: #30363d;
+      --text-main: #f0f6fc;
+      --text-muted: #8b949e;
+      --accent: #a855f7;
+      --accent-glow: rgba(168, 85, 247, 0.15);
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.6;
+      padding: 0 1.5rem 4rem 1.5rem;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    header {
+      padding: 4rem 0 2.5rem 0;
+      text-align: center;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 3rem;
+    }
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+      border-radius: 20px;
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 8px 30px rgba(124, 58, 237, 0.3);
+    }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #ffffff 30%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .tagline { color: var(--text-muted); font-size: 1.1rem; }
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .app-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .app-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px var(--accent-glow);
+    }
+    .app-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .app-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .app-title { font-size: 1.2rem; font-weight: 600; }
+    .app-package { font-size: 0.8rem; color: var(--text-muted); font-family: monospace; }
+    .app-desc { color: #c9d1d9; font-size: 0.92rem; margin-bottom: 1.5rem; line-height: 1.5; }
+    .card-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background-color: #7c3aed;
+      color: #ffffff;
+    }
+    .btn-primary:hover { background-color: #6d28d9; }
+    .btn-secondary {
+      background-color: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+    }
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: var(--text-muted);
+    }
+    .principles-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+    }
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+    .principle-item {
+      font-size: 0.9rem;
+      color: #c9d1d9;
+    }
+    .principle-item strong {
+      display: block;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+    }
+    footer {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-badge">⚡</div>
+      <h1>Zypher Apps & Privacy Portal</h1>
+      <p class="tagline">Official application hub and centralized privacy disclosures</p>
+    </header>
+
+    <h2 class="section-title">📱 Featured Applications</h2>
+    <div class="app-grid">
+      <!-- Zypher Puzzles -->
+      <div class="app-card">
+        <div>
+          <div class="app-card-header">
+            <img src="assets/puzzles_icon.png" alt="Zypher Puzzles Icon" class="app-icon">
+            <div>
+              <div class="app-title">Zypher Puzzles</div>
+              <div class="app-package">com.zypher.puzzlegame</div>
+            </div>
+          </div>
+          <p class="app-desc">
+            Classic sliding, rotational twist, and jigsaw puzzles in one polished, offline-ready mobile experience. Includes custom photo puzzles, move tracking, and tablet multi-pane support.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="privacy/puzzles/" class="btn btn-primary">🛡️ Privacy Policy</a>
+          <a href="privacy/puzzles/" class="btn btn-secondary">Play Store Ready</a>
+        </div>
+      </div>
+
+      <!-- Future Apps Extensible Card -->
+      <div class="app-card" style="border-style: dashed; opacity: 0.75;">
+        <div>
+          <div class="app-card-header">
+            <div class="app-icon" style="background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🚀
+            </div>
+            <div>
+              <div class="app-title">More Apps Coming Soon</div>
+              <div class="app-package">com.zypher.*</div>
+            </div>
+          </div>
+          <p class="app-desc">
+            New Zypher games and utilities are in active development. All future releases will publish their verified legal and privacy declarations directly in this portal.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="privacy/" class="btn btn-secondary">Studio Disclosures</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="principles-card">
+      <h2 style="font-size: 1.2rem; margin-bottom: 0.5rem;">🔒 Studio-Wide Privacy Commitment</h2>
+      <p style="color: var(--text-muted); font-size: 0.92rem;">
+        Across all applications developed by Zypher, our commitment to player privacy is absolute and grounded in four pillars:
+      </p>
+      <div class="principles-grid">
+        <div class="principle-item">
+          <strong>1. Zero Data Brokerage</strong>
+          We do not collect, buy, sell, or rent your personal information to advertisers or data brokers.
+        </div>
+        <div class="principle-item">
+          <strong>2. On-Device Processing</strong>
+          Features like camera photos and custom imagery remain strictly inside your device sandbox.
+        </div>
+        <div class="principle-item">
+          <strong>3. Offline-First Architecture</strong>
+          Our core games require no network connections, logins, or background telemetry.
+        </div>
+        <div class="principle-item">
+          <strong>4. User Data Sovereignty</strong>
+          Game stats reside exclusively on your phone. Deleting the app cleanly purges all data.
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Zypher. All rights reserved. &bull; <a href="https://github.com/fanybruce/zypher.exp">GitHub Repository</a> &bull; <a href="mailto:support@zypher.example.com">Contact Support</a></p>
+    </footer>
+  </div>
+</body>
+</html>
