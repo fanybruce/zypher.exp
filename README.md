@@ -8,17 +8,21 @@ Official centralized developer portal and privacy policy repository for **Zypher
 
 ## 📁 Repository Structure
 
+Each application has its own dedicated, self-contained folder containing every document and asset required for store submission and user disclosure:
+
 ```text
 zypher.exp/
 ├── index.html                   # Central Hub Portal listing all Zypher applications
 ├── privacy/
-│   ├── index.html               # General privacy directory listing all policies
-│   └── puzzles/
-│       └── index.html           # Dedicated Privacy Policy for Zypher Puzzles
-├── puzzles/
-│   └── privacy.html             # Direct alias permalink for store submissions
-├── assets/
-│   └── puzzles_icon.png         # Zypher Puzzles app icon
+│   └── index.html               # General privacy directory listing all policies
+├── puzzles/                     # Zypher Puzzles self-contained app folder
+│   ├── index.html               # Privacy Policy
+│   ├── privacy.html             # Store submission permalink
+│   └── icon.png                 # App icon
+├── game_2048/                   # 2048+ self-contained app folder
+│   ├── index.html               # Privacy Policy
+│   ├── privacy.html             # Store submission permalink
+│   └── icon.png                 # App icon
 ├── .nojekyll                    # Ensures clean static file serving on GitHub Pages
 └── .github/
     └── workflows/
@@ -29,9 +33,10 @@ zypher.exp/
 
 ## 🔗 Live Application Privacy URLs
 
-| Application | Package ID | Official Privacy Policy URL |
-| :--- | :--- | :--- |
-| **Zypher Puzzles** | `com.zypher.puzzlegame` | [https://fanybruce.github.io/zypher.exp/privacy/puzzles/](https://fanybruce.github.io/zypher.exp/privacy/puzzles/) *(or `.../puzzles/privacy.html`)* |
+| Application | Package ID | Official Privacy Policy URL | Direct Store Permalink |
+| :--- | :--- | :--- | :--- |
+| **Zypher Puzzles** | `com.zypher.puzzlegame` | [https://fanybruce.github.io/zypher.exp/puzzles/](https://fanybruce.github.io/zypher.exp/puzzles/) | `.../puzzles/privacy.html` |
+| **2048+** | `com.zypher.game_2048` | [https://fanybruce.github.io/zypher.exp/game_2048/](https://fanybruce.github.io/zypher.exp/game_2048/) | `.../game_2048/privacy.html` |
 
 ---
 
@@ -39,16 +44,19 @@ zypher.exp/
 
 When releasing a new app under the Zypher publisher account:
 
-1. **Create Policy Folder**:
-   Create a new directory under `privacy/<app_name>/` (e.g. `privacy/greedysnake/index.html`).
-2. **Copy the Template**:
-   Copy `privacy/puzzles/index.html`, update the title, package ID (`com.zypher.<app_name>`), and specific feature permissions.
+1. **Create Dedicated App Folder**:
+   Create a new directory at the repository root: `<app_name>/` (e.g. `greedysnake/`).
+2. **Add Required Application Docs & Assets**:
+   Inside `<app_name>/`, add:
+   - `icon.png`: High-resolution application icon.
+   - `index.html`: Privacy policy based on the Zypher privacy template.
+   - `privacy.html`: Alias copy of `index.html` for direct store URLs.
 3. **Register on Main Portal**:
-   Add a card for the new app in root `index.html` and a listing entry in `privacy/index.html`.
+   Add an app card in root `index.html` and a listing row in `privacy/index.html`.
 4. **Push to GitHub**:
    ```bash
    git add .
-   git commit -m "feat: add privacy policy for <app_name>"
+   git commit -m "feat: add privacy docs for <app_name>"
    git push origin main
    ```
    GitHub Pages will automatically deploy the update within seconds!
